@@ -1,0 +1,35 @@
+<!-- templates/cars/base.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}nipon Motors{% endblock %}</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="{% url 'nipon_cars:home' %}">Home</a>
+      <a href="{% url 'nipon_cars:car_list' %}">Cars</a>
+      <a href="{% url 'nipon_cars:car_list_class' %}">Cars CBV</a>
+      {% if user.is_authenticated %}
+        <span>Hi, {{ user.username }}</span>
+        <a href="{% url 'logout' %}">Logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'nipon_cars:signup' %}">Signup</a>
+      {% endif %}
+    </nav>
+    {% if messages %}
+      <ul>
+      {% for message in messages %}
+        <li>{{ message }}</li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

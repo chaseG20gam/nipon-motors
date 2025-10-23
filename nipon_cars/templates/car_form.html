@@ -1,0 +1,8 @@
+{% extends "nipon_cars/base.html" %}
+{% block content %}
+  <h1>{% if form.instance.pk %}Edit Car{% else %}Create Car{% endif %}</h1>
+  <form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
