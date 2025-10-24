@@ -1,4 +1,0 @@
-Django
-djangorestframework
-Pillow
-django-filter>=23.0

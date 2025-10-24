@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ car.brand }} {{ car.model }} ({{ car.year }})</h1>
+  <p>Price: {{ car.price }}</p>
+  <p>Mileage: {{ car.mileage }}</p>
+  <p>Fuel: {{ car.fuel_type }}</p>
+  {% if user.is_authenticated %}
+    <a href="{% url 'nipon_cars:car_edit' car.pk %}">Edit</a>
+    <a href="{% url 'nipon_cars:car_delete' car.pk %}">Delete</a>
+  {% endif %}
+{% endblock %}
