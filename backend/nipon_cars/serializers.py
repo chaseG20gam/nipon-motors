@@ -31,7 +31,7 @@ class CarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Car
-        fields = ['id', 'title', 'brand', 'model', 'year', 'mileage', 'price', 'fuel_type', 'prefecture', 'owner', 'owner_id', 'features', 'feature_ids', 'created_at', 'updated_at']
+        fields = ['id', 'title', 'brand', 'model', 'year', 'mileage', 'price', 'fuel_type', 'prefecture', 'image', 'owner', 'owner_id', 'features', 'feature_ids', 'created_at', 'updated_at']
     
     def create(self, validated_data):
         feature_ids = validated_data.pop('feature_ids', [])

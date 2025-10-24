@@ -4,11 +4,10 @@ import { AuthProvider } from './contexts/AuthContext';
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
+import CarList from './components/CarList';
+import CarDetail from './components/CarDetail';
+import Home from './components/Home';
 import './App.css';
-
-// placeholder components
-const Home = () => <div><h1>Welcome to Nipon Motors</h1><p>Your premier car dealership platform</p></div>;
-const Cars = () => <div><h1>Cars</h1><p>Car listing will go here</p></div>;
 
 function App() {
   return (
@@ -21,14 +20,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
-              <Route 
-                path="/cars" 
-                element={
-                  <ProtectedRoute>
-                    <Cars />
-                  </ProtectedRoute>
-                } 
-              />
+              <Route path="/cars" element={<CarList />} />
+              <Route path="/cars/:id" element={<CarDetail />} />
             </Routes>
           </main>
         </div>

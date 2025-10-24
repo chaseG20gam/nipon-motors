@@ -1,6 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.exceptions import ValidationError
+from PIL import Image
+
+def validate_image(image):
+    #custom validator for uploaded images
+    if image:
+        try:
+            # open the image with pillow
+            img = Image.open(image)
+            img.verify()  # Verify that it's a valid image
+        except Exception as e:
+            raise ValidationError(f"Invalid image file: {str(e)}")
+        
+        # check file size (limit to 5mb)
+        if image.size > 5 * 1024 * 1024:  # 5mb
+            raise ValidationError("Image file too large (maximum 5MB allowed)")
+    
+    return image
 
 class BaseEntity(models.Model): # abstract base model
     title = models.CharField(max_length=200)
@@ -53,6 +71,7 @@ class Car(BaseEntity): # car model
     _price = models.DecimalField(max_digits=10, decimal_places=2, db_column='price')  # private field with db_column
     fuel_type = models.CharField(max_length=10, choices=FUEL_CHOICES)
     prefecture = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='car_images/', null=True, blank=True, validators=[validate_image])  # car image field
     owner = models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True, blank=True, related_name='cars')
     features = models.ManyToManyField(Feature, blank=True, related_name='cars')
 

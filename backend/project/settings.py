@@ -134,6 +134,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# media files (user uploads)
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# file upload settings
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB in memory
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB max upload size
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -142,13 +151,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 WSGI_APPLICATION = 'project.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",   # Create React App (if used)
-    "http://127.0.0.1:3000",   # Alternative localhost
-    "http://localhost:5173",   # Vite dev server
-    "http://127.0.0.1:5173",   # Alternative localhost for Vite
+    "http://localhost:3000",   # create react app
+    "http://127.0.0.1:3000",   # alternative localhost
+    "http://localhost:5173",   # vite dev server
+    "http://127.0.0.1:5173",   # alternative localhost for vite
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True # remember to change this later
+CORS_ALLOW_ALL_ORIGINS = True # remember to change this later!!!!
 
 CORS_ALLOW_CREDENTIALS = True
 
