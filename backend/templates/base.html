@@ -4,27 +4,137 @@
 <head>
   <meta charset="utf-8">
   <title>{% block title %}nipon Motors{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  /* CSS */
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      min-height: 100vh;
+      color: #2c3e50;
+    }
+    
+    header {
+      background: rgba(44, 24, 16, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid #ff6b6b;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      margin: 0 5px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    nav a:hover {
+      background: rgba(255, 107, 107, 0.2);
+      color: #ffd93d;
+      transform: translateY(-1px);
+    }
+    
+    nav a:first-child {
+      font-weight: 700;
+      font-size: 1.1em;
+      color: #ffd93d;
+      border: 1px solid rgba(255, 217, 61, 0.3);
+    }
+    
+    nav span {
+      color: #ffd93d;
+      font-weight: 500;
+      padding: 8px 12px;
+      background: rgba(255, 217, 61, 0.1);
+      border-radius: 4px;
+      border-left: 3px solid #ff6b6b;
+    }
+    
+    .messages {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 20px 0;
+    }
+    
+    .messages ul {
+      list-style: none;
+    }
+    
+    .messages li {
+      background: rgba(255, 107, 107, 0.1);
+      color: #2c1810;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border-left: 4px solid #ff6b6b;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    main {
+      padding: 20px;
+    }
+    
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+      
+      nav a {
+        margin: 2px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav>
-      <a href="{% url 'nipon_cars:home' %}">Home</a>
-      <a href="{% url 'nipon_cars:car_list' %}">Cars</a>
-      <a href="{% url 'nipon_cars:car_list_class' %}">Cars CBV</a>
-      {% if user.is_authenticated %}
-        <span>Hi, {{ user.username }}</span>
-        <a href="{% url 'logout' %}">Logout</a>
-      {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'nipon_cars:signup' %}">Signup</a>
-      {% endif %}
+      <a href="{% url 'nipon_cars:home' %}"><img src="/nm-icon.png" alt="ニポンモータース" /> ニポンモータース/home</a>
+      <div>
+        <a href="{% url 'nipon_cars:car_list' %}">車両一覧/cars</a>
+        <a href="{% url 'nipon_cars:car_list_class' %}">Cars CBV</a>
+        {% if user.is_authenticated %}
+          <span>こんにちは/hi, {{ user.username }}</span>
+          <a href="{% url 'logout' %}">ログアウト/login</a>
+        {% else %}
+          <a href="{% url 'login' %}">ログイン/login</a>
+          <a href="{% url 'nipon_cars:signup' %}">新規登録/signup</a>
+        {% endif %}
+      </div>
     </nav>
     {% if messages %}
-      <ul>
-      {% for message in messages %}
-        <li>{{ message }}</li>
-      {% endfor %}
-      </ul>
+      <div class="messages">
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      </div>
     {% endif %}
   </header>
 

@@ -1,29 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import './Navigation.css';
 
 const Navigation = () => {
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
-    <nav className="navbar">
-      <div className="nav-brand">
-        <Link to="/">Nipon Motors</Link>
-      </div>
-      
-      <div className="nav-links">
-        <Link to="/cars">Cars</Link>
+    <nav className="navbar japanese-nav">
+      <div className="navbar-container">
+        <div className="nav-brand"> <Link to="/">ニポンモータース/Nipon Motors</Link> </div>
         
-        {isAuthenticated ? (
-          <div className="nav-user">
-            <span>Welcome, {user?.username}!</span>
-            <button onClick={logout} className="logout-btn">
-              Logout
-            </button>
-          </div>
-        ) : (
-          <Link to="/login">Login</Link>
-        )}
+        <div className="nav-links">
+          <Link to="/cars" className="cars-link">Cars</Link>
+          
+          {isAuthenticated ? (
+            <div className="nav-user">
+              <span className="welcome-text">{user?.username}!</span>
+              <button onClick={logout} className="logout-btn">
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="login-link">Login</Link>
+          )}
+        </div>
       </div>
     </nav>
   );

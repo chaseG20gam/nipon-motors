@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import sakuraPetal from '../assets/sakura-petal-11.svg';
 import './Home.css';
 
 const Home = () => {
@@ -7,39 +8,60 @@ const Home = () => {
     <div className="home-container">
       {/* Hero section */}
       <section className="hero-section">
+        <div className="japanese-pattern-overlay"></div>
         <div className="hero-overlay">
           <div className="hero-content">
+            <div className="japanese-accent">日本の品質</div>
             <h1 className="hero-title">
-              Welcome to <span className="brand-name">Nipon Motors</span>
+              Welcome to <span className="brand-name">ニポンモータース</span>
             </h1>
-            <p className="hero-subtitle">
-              Discover your perfect ride from Japan's finest selection of premium vehicles
-            </p>
+            <img src='/nm-logo.png' alt='Nipon Motors Logo' className='hero-logo' />
+            <div className="hero-subtitle-container">
+              <p className="hero-subtitle"> Discover your perfect ride from Japan's finest selection of premium vehicles
+              </p>
+              <p className="hero-subtitle-japanese"> 最高品質の日本車をお届けします
+              </p>
+            </div>
             <div className="hero-stats">
               <div className="stat-item">
                 <span className="stat-number">1000+</span>
                 <span className="stat-label">Premium Cars</span>
+                <span className="stat-label-japanese">プレミアム車</span>
               </div>
               <div className="stat-item">
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Cities</span>
+                <span className="stat-number">47</span>
+                <span className="stat-label">Prefectures</span>
+                <span className="stat-label-japanese">都道府県</span>
               </div>
               <div className="stat-item">
                 <span className="stat-number">24/7</span>
                 <span className="stat-label">Support</span>
+                <span className="stat-label-japanese">サポート</span>
               </div>
             </div>
             <div className="hero-actions">
               <Link to="/cars" className="cta-button primary">
-                Browse Cars
+                車を見る
+                <span className="cta-english">Browse Cars</span>
               </Link>
               <Link to="/login" className="cta-button secondary">
-                Get Started
+                始める
+                <span className="cta-english">Get Started</span>
               </Link>
             </div>
           </div>
         </div>
         <div className="hero-background"></div>
+        <div className="cherry-blossoms">
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-1" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-2" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-3" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-4" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-5" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-6" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-7" />
+          <img src={sakuraPetal} alt="sakura" className="sakura sakura-8" />
+        </div>
       </section>
 
       {/* Features section */}
