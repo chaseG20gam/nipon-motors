@@ -46,7 +46,9 @@ const CarDetail = () => {
   if (loading) {
     return (
       <div className="car-detail-container">
-        <div className="loading">Loading car details...</div>
+        <div className="car-detail-content">
+          <div className="loading">Loading car details...</div>
+        </div>
       </div>
     );
   }
@@ -54,10 +56,12 @@ const CarDetail = () => {
   if (error) {
     return (
       <div className="car-detail-container">
-        <div className="error-message">{error}</div>
-        <button onClick={() => navigate('/cars')} className="back-btn">
-          Back to Cars
-        </button>
+        <div className="car-detail-content">
+          <div className="error-message">{error}</div>
+          <button onClick={() => navigate('/cars')} className="back-btn">
+            Back to Cars
+          </button>
+        </div>
       </div>
     );
   }
@@ -65,17 +69,20 @@ const CarDetail = () => {
   if (!car) {
     return (
       <div className="car-detail-container">
-        <div className="error-message">Car not found.</div>
-        <button onClick={() => navigate('/cars')} className="back-btn">
-          Back to Cars
-        </button>
+        <div className="car-detail-content">
+          <div className="error-message">Car not found.</div>
+          <button onClick={() => navigate('/cars')} className="back-btn">
+            Back to Cars
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="car-detail-container">
-      {/* Navigation */}
+      <div className="car-detail-content">
+        {/* nav */}
       <div className="car-detail-nav">
         <Link to="/cars" className="back-link">
           ← Back to Cars
@@ -113,53 +120,73 @@ const CarDetail = () => {
 
       {/* car details grid */}
       <div className="car-details-grid">
-        {/* basic info */}
-        <div className="detail-card">
-          <h3>Vehicle Information</h3>
-          <div className="detail-row">
-            <span className="detail-label">Brand:</span>
-            <span className="detail-value">{car.brand}</span>
+        {/* regular info cards row */}
+        <div className="info-cards-row">
+          {/* basic info */}
+          <div className="detail-card">
+            <h3>Vehicle Information</h3>
+            <div className="detail-row">
+              <span className="detail-label">Brand:</span>
+              <span className="detail-value">{car.brand}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Model:</span>
+              <span className="detail-value">{car.model}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Year:</span>
+              <span className="detail-value">{car.year}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Mileage:</span>
+              <span className="detail-value">{car.mileage?.toLocaleString()} km</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Fuel Type:</span>
+              <span className="detail-value">{car.fuel_type}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Prefecture:</span>
+              <span className="detail-value">{car.prefecture}</span>
+            </div>
           </div>
-          <div className="detail-row">
-            <span className="detail-label">Model:</span>
-            <span className="detail-value">{car.model}</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Year:</span>
-            <span className="detail-value">{car.year}</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Mileage:</span>
-            <span className="detail-value">{car.mileage?.toLocaleString()} km</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Fuel Type:</span>
-            <span className="detail-value">{car.fuel_type}</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Prefecture:</span>
-            <span className="detail-value">{car.prefecture}</span>
+
+          {/* owner info */}
+          {car.owner && (
+            <div className="detail-card">
+              <h3>Owner Information</h3>
+              <div className="detail-row">
+                <span className="detail-label">Name:</span>
+                <span className="detail-value">{car.owner.name}</span>
+              </div>
+              {car.owner.email && (
+                <div className="detail-row">
+                  <span className="detail-label">Email:</span>
+                  <span className="detail-value">
+                    <a href={`mailto:${car.owner.email}`}>{car.owner.email}</a>
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* info list */}
+          <div className="detail-card">
+            <h3>Listing Information</h3>
+            <div className="detail-row">
+              <span className="detail-label">Listed on:</span>
+              <span className="detail-value">{formatDate(car.created_at)}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Last updated:</span>
+              <span className="detail-value">{formatDate(car.updated_at)}</span>
+            </div>
+            <div className="detail-row">
+              <span className="detail-label">Car ID:</span>
+              <span className="detail-value">#{car.id}</span>
+            </div>
           </div>
         </div>
-
-        {/* owner info */}
-        {car.owner && (
-          <div className="detail-card">
-            <h3>Owner Information</h3>
-            <div className="detail-row">
-              <span className="detail-label">Name:</span>
-              <span className="detail-value">{car.owner.name}</span>
-            </div>
-            {car.owner.email && (
-              <div className="detail-row">
-                <span className="detail-label">Email:</span>
-                <span className="detail-value">
-                  <a href={`mailto:${car.owner.email}`}>{car.owner.email}</a>
-                </span>
-              </div>
-            )}
-          </div>
-        )}
 
         {/* features */}
         {car.features && car.features.length > 0 && (
@@ -175,23 +202,6 @@ const CarDetail = () => {
             </div>
           </div>
         )}
-
-        {/* info list */}
-        <div className="detail-card">
-          <h3>Listing Information</h3>
-          <div className="detail-row">
-            <span className="detail-label">Listed on:</span>
-            <span className="detail-value">{formatDate(car.created_at)}</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Last updated:</span>
-            <span className="detail-value">{formatDate(car.updated_at)}</span>
-          </div>
-          <div className="detail-row">
-            <span className="detail-label">Car ID:</span>
-            <span className="detail-value">#{car.id}</span>
-          </div>
-        </div>
       </div>
 
       {/* buttons */}
@@ -210,6 +220,7 @@ const CarDetail = () => {
         <Link to="/cars" className="browse-more-link">
           Browse all cars →
         </Link>
+      </div>
       </div>
     </div>
   );

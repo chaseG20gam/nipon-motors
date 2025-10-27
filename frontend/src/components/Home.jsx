@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sakuraPetal from '../assets/sakura-petal-11.svg';
+import carIcon from '../assets/car-ico.svg';
+import yenIcon from '../assets/yen-ico.svg';
+import secureIcon from '../assets/sec-ico.svg';
+import lensIcon from '../assets/lens-ico.svg';
 import './Home.css';
 
 const Home = () => {
   return (
     <div className="home-container">
-      {/* Hero section */}
+      {/* hero section */}
       <section className="hero-section">
         <div className="japanese-pattern-overlay"></div>
         <div className="hero-overlay">
@@ -64,28 +68,36 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features section */}
+      {/* features section */}
       <section className="features-section">
         <div className="container">
           <h2 className="section-title">Why Choose Nipon Motors?</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-icon">🚗</div>
+              <div className="feature-icon">
+                <img src={carIcon} alt="Premium Selection" className="feature-icon-svg" />
+              </div>
               <h3>Premium Selection</h3>
               <p>Handpicked vehicles from trusted dealers across Japan, ensuring quality and reliability.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🔍</div>
+              <div className="feature-icon">
+                <img src={lensIcon} alt="Smart Search" className="feature-icon-svg" />
+              </div>
               <h3>Smart Search</h3>
               <p>Advanced filtering and search capabilities to find your perfect match quickly and easily.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">💰</div>
+              <div className="feature-icon">
+                <img src={yenIcon} alt="Best Prices" className="feature-icon-svg" />
+              </div>
               <h3>Best Prices</h3>
               <p>Competitive pricing with transparent costs and no hidden fees. Get the best value for your money.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-icon">🛡️</div>
+              <div className="feature-icon">
+                <img src={secureIcon} alt="Trusted Platform" className="feature-icon-svg" />
+              </div>
               <h3>Trusted Platform</h3>
               <p>Secure transactions and verified dealers. Your peace of mind is our top priority.</p>
             </div>
@@ -93,34 +105,25 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Popular categories */}
+      {/* popular categories */}
       <section className="categories-section">
         <div className="container">
           <h2 className="section-title">Popular Categories</h2>
           <div className="categories-grid">
-            <div className="category-card sedan">
+            <div className="category-card tokyo">
               <div className="category-overlay">
-                <h3>Sedans</h3>
-                <p>Comfort & Elegance</p>
-                <Link to="/cars?body_type=sedan" className="category-link">
+                <h3>Tokyo Cars</h3>
+                <p>Premium Selection</p>
+                <Link to="/cars?prefecture=Tokyo" className="category-link">
                   Explore →
                 </Link>
               </div>
             </div>
-            <div className="category-card suv">
+            <div className="category-card budget">
               <div className="category-overlay">
-                <h3>SUVs</h3>
-                <p>Adventure Ready</p>
-                <Link to="/cars?body_type=suv" className="category-link">
-                  Explore →
-                </Link>
-              </div>
-            </div>
-            <div className="category-card sports">
-              <div className="category-overlay">
-                <h3>Sports Cars</h3>
-                <p>Pure Performance</p>
-                <Link to="/cars?category=sports" className="category-link">
+                <h3>Under ¥20,000</h3>
+                <p>Budget Friendly</p>
+                <Link to="/cars?max_price=20000" className="category-link">
                   Explore →
                 </Link>
               </div>

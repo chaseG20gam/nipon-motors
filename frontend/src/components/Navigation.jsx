@@ -16,7 +16,7 @@ const Navigation = () => {
           
           {isAuthenticated ? (
             <div className="nav-user">
-              <span className="welcome-text">{user?.username}!</span>
+              <span className="welcome-text"> {user?.username}!</span>
               <button onClick={logout} className="logout-btn">
                 Logout
               </button>

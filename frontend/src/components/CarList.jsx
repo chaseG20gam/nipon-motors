@@ -1,23 +1,54 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { carsAPI } from '../services/api';
 import './CarList.css';
 
 const CarList = () => {
+  const location = useLocation();
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [pagination, setPagination] = useState({
+    count: 0,
+    next: null,
+    previous: null,
+    current: 1,
+    totalPages: 1
+  });
+  const [currentOffset, setCurrentOffset] = useState(0);
   const [filters, setFilters] = useState({
     brand: '',
+    model: '',
     fuel_type: '',
     prefecture: '',
+    max_price: '',
   });
+  const [filtersInitialized, setFiltersInitialized] = useState(false);
 
-  // fetch cars
+  // read URL parameters on mount and set initial filters
   useEffect(() => {
-    fetchCars();
-  }, []);
+    const urlParams = new URLSearchParams(location.search);
+    const initialFilters = {
+      brand: urlParams.get('brand') || '',
+      model: urlParams.get('model') || '',
+      fuel_type: urlParams.get('fuel_type') || '',
+      prefecture: urlParams.get('prefecture') || '',
+      max_price: urlParams.get('max_price') || '',
+    };
+    
+    console.log('URL Parameters:', location.search);
+    console.log('Parsed Filters:', initialFilters);
+    setFilters(initialFilters);
+    setFiltersInitialized(true);
+  }, [location.search]);
+
+  // fetch cars when filters change (but only after filters are initialized)
+  useEffect(() => {
+    if (filtersInitialized) {
+      fetchCars();
+    }
+  }, [filters, filtersInitialized]);
 
   const fetchCars = async (params = {}) => {
     try {
@@ -34,8 +65,41 @@ const CarList = () => {
         searchParams.search = searchTerm;
       }
       
+      // Remove empty parameters
+      Object.keys(searchParams).forEach(key => {
+        if (!searchParams[key]) {
+          delete searchParams[key];
+        }
+      });
+      
+      console.log('Fetching cars with params:', searchParams);
       const data = await carsAPI.getAllCars(searchParams);
       setCars(data.results || data); //pagination
+      
+      // update pagination state
+      if (data.count !== undefined) {
+        const totalPages = Math.ceil(data.count / 10); // 10 items per page
+        const offset = parseInt(searchParams.offset || '0');
+        const currentPage = Math.floor(offset / 10) + 1;
+        
+        setPagination({
+          count: data.count,
+          next: data.next,
+          previous: data.previous,
+          current: currentPage,
+          totalPages: totalPages
+        });
+        
+        setCurrentOffset(offset);
+        console.log('Pagination info:', {
+          count: data.count,
+          offset,
+          currentPage,
+          totalPages,
+          hasNext: !!data.next,
+          hasPrevious: !!data.previous
+        });
+      }
     } catch (err) {
       console.error('Error fetching cars:', err);
       setError('Failed to load cars. Please try again.');
@@ -49,11 +113,32 @@ const CarList = () => {
     fetchCars();
   };
 
+  const handlePageChange = (page) => {
+    const offset = (page - 1) * 10; // 10 items per page
+    fetchCars({ offset });
+  };
+
+  const handleNextPage = () => {
+    if (pagination.next) {
+      handlePageChange(pagination.current + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (pagination.previous) {
+      handlePageChange(pagination.current - 1);
+    }
+  };
+
   const handleFilterChange = (key, value) => {
     const newFilters = { ...filters, [key]: value };
     setFilters(newFilters);
     
-    // auto-search when filters change
+    // reset pagination when filters change
+    setCurrentOffset(0);
+    
+    // auto-search when filters change, but reset to first page
+    fetchCars({ ...newFilters, offset: 0 });
     fetchCars(newFilters);
   };
 
@@ -130,6 +215,18 @@ const CarList = () => {
             <option value="Hokkaido">Hokkaido</option>
             <option value="Fukuoka">Fukuoka</option>
           </select>
+
+          <select
+            value={filters.max_price}
+            onChange={(e) => handleFilterChange('max_price', e.target.value)}
+            className="filter-select"
+          >
+            <option value="">Any Price</option>
+            <option value="15000">Under ¥15,000</option>
+            <option value="20000">Under ¥20,000</option>
+            <option value="25000">Under ¥25,000</option>
+            <option value="30000">Under ¥30,000</option>
+          </select>
         </div>
       </div>
 
@@ -203,6 +300,32 @@ const CarList = () => {
           ))
         )}
       </div>
+
+      {/* Pagination Controls */}
+      {pagination.totalPages > 1 && (
+        <div className="pagination">
+          <button 
+            onClick={handlePreviousPage} 
+            disabled={!pagination.previous}
+            className="pagination-btn"
+          >
+            ← Previous
+          </button>
+          
+          <div className="page-info">
+            <span>Page {pagination.current} of {pagination.totalPages}</span>
+            <span className="total-items">({pagination.count} cars total)</span>
+          </div>
+          
+          <button 
+            onClick={handleNextPage} 
+            disabled={!pagination.next}
+            className="pagination-btn"
+          >
+            Next →
+          </button>
+        </div>
+      )}
     </div>
   );
 };

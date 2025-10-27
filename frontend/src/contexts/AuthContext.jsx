@@ -20,10 +20,14 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('access_token');
     const refreshToken = localStorage.getItem('refresh_token');
+    const savedUsername = localStorage.getItem('username');
     
     if (token && refreshToken) {
       setIsAuthenticated(true);
-      // mak as true for debugging
+      // restore user data if available
+      if (savedUsername) {
+        setUser({ username: savedUsername });
+      }
     }
     
     setLoading(false);
@@ -37,6 +41,7 @@ export const AuthProvider = ({ children }) => {
       // store tokens
       localStorage.setItem('access_token', data.access);
       localStorage.setItem('refresh_token', data.refresh);
+      localStorage.setItem('username', username);
       
       // set auth state
       setIsAuthenticated(true);
@@ -58,6 +63,7 @@ export const AuthProvider = ({ children }) => {
     // clear tokens
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
+    localStorage.removeItem('username');
     
     // clear auth state
     setUser(null);

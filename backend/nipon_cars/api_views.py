@@ -2,6 +2,16 @@ from rest_framework import generics, filters, permissions
 from .models import Car, Feature, Owner
 from .serializers import CarSerializer, FeatureSerializer, OwnerSerializer
 from django_filters.rest_framework import DjangoFilterBackend
+import django_filters
+
+# custom filter for car model
+class CarFilter(django_filters.FilterSet):
+    max_price = django_filters.NumberFilter(field_name='_price', lookup_expr='lte')
+    min_price = django_filters.NumberFilter(field_name='_price', lookup_expr='gte')
+    
+    class Meta:
+        model = Car
+        fields = ['brand', 'year', 'fuel_type', 'prefecture', 'model']
 
 # car API Views
 class CarListCreateAPI(generics.ListCreateAPIView):
@@ -9,7 +19,7 @@ class CarListCreateAPI(generics.ListCreateAPIView):
     serializer_class = CarSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
-    filterset_fields = ['brand', 'year', 'fuel_type', 'prefecture']
+    filterset_class = CarFilter
     search_fields = ['model', 'brand', 'title']
     ordering_fields = ['_price', 'year', '_mileage', 'created_at']
     
