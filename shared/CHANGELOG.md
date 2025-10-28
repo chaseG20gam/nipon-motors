@@ -1,5 +1,40 @@
 # changelog
 
+## [1.4.0] - 2025-10-28
+
+### added
+- japanese-style floating side panels with glass morphism effects
+- user car management system with CRUD operations
+- background image integration in promotional panels
+- add car functionality with feature selection
+- edit car functionality with ownership validation
+- delete car capability restricted to car owners
+- colorful text styling with CSS outlines for image overlays
+- published by field linking cars to their creators
+
+### enhanced
+- text readability over background images with vibrant colors
+- floating panels positioning closer to header
+- font sizes increased for better visibility
+- CSS text-stroke effects for improved contrast
+- panel content with Japanese/English bilingual text
+- user authentication context with car ownership checks
+
+### improved
+- API endpoints with proper ownership permissions
+- paginated responses for features and car data
+- FormData handling for image uploads
+- error handling with content-type validation
+- CSS styling with reduced outline thickness
+- responsive panel layout and positioning
+
+### technical
+- IsOwnerOrReadOnly permission class implementation
+- car model updated with published_by foreign key
+- serializers enhanced with user context
+- database migrations for ownership tracking
+- japanese typography and design elements integration
+
 ## [1.3.0] - 2025-10-27
 
 ### added
