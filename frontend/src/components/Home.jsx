@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ad1 from '../assets/ad1.jpg';
+import ad2 from '../assets/ad2.jpg';
 import sakuraPetal from '../assets/sakura-petal-11.svg';
 import carIcon from '../assets/car-ico.svg';
 import yenIcon from '../assets/yen-ico.svg';
@@ -10,6 +12,104 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-container">
+      {/* floating side panels */}
+      <div className="floating-panels-left">
+        {/* news Panel */}
+        <div className="floating-panel news-panel">
+          <div className="panel-header">
+            <span className="panel-icon">📰</span>
+            <h4>最新情報</h4>
+            <small>Latest News</small>
+          </div>
+          <div className="panel-content">
+            <div className="news-item">
+              <div className="news-badge">NEW</div>
+              <p>春の特別セール開始!</p>
+              <small>Spring Special Sale Started!</small>
+            </div>
+            <div className="news-item">
+              <div className="news-badge">HOT</div>
+              <p>東京モーターショー参加</p>
+              <small>Tokyo Motor Show Participation</small>
+            </div>
+          </div>
+        </div>
+
+        {/* live stats panel */}
+        <div className="floating-panel stats-panel no-header">
+          <div className="panel-content">
+            {/* background image */}
+            <img src={ad1} alt="ad" className="stats-bg-image" />
+          </div>
+        </div>
+      </div>
+
+      <div className="floating-panels-right">
+        {/* quick search panel */}
+        <div className="floating-panel search-panel">
+          <div className="panel-header">
+            <h4>クイック検索</h4>
+            <small>Quick Search</small>
+          </div>
+          <div className="panel-content">
+            <div className="quick-search-options">
+              <Link to="/cars?fuel_type=ELECTRIC" className="quick-option electric">
+                ⚡ 電気自動車
+              </Link>
+              <Link to="/cars?fuel_type=HYBRID" className="quick-option hybrid">
+                🌱 ハイブリッド
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* promotional banner */}
+        <div className="floating-panel promo-panel">
+          <div className="panel-content">
+            <img src={ad2} alt='blossomAd' className='promo-bg-image' />
+            <div className="promo-banner">
+              <div className="promo-text">
+                <h4>特別キャンペーン</h4>
+                <small>Special Campaign</small>
+                <h5>桜祭りセール</h5>
+                <p>最大30%オフ!</p>
+                <small>Up to 30% OFF during Sakura Festival!</small>
+              </div>
+              <div className="promo-cta">
+                <Link to="/cars" className="promo-button">
+                  今すぐ見る
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* social panel */}
+        <div className="floating-panel community-panel">
+          <div className="panel-header">
+            <span className="panel-icon">👥</span>
+            <h4>コミュニティ</h4>
+            <small>Community</small>
+          </div>
+          <div className="panel-content">
+            <div className="community-item">
+              <span className="user-avatar">👨‍💼</span>
+              <div className="user-activity">
+                <p><strong>田中さん</strong>がトヨタを購入</p>
+                <small>2分前</small>
+              </div>
+            </div>
+            <div className="community-item">
+              <span className="user-avatar">👩‍💻</span>
+              <div className="user-activity">
+                <p><strong>佐藤さん</strong>がレビュー投稿</p>
+                <small>5分前</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* hero section */}
       <section className="hero-section">
         <div className="japanese-pattern-overlay"></div>
