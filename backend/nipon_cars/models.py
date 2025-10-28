@@ -74,6 +74,7 @@ class Car(BaseEntity): # car model
     image = models.ImageField(upload_to='car_images/', null=True, blank=True, validators=[validate_image])  # car image field
     owner = models.ForeignKey(Owner, on_delete=models.SET_NULL, null=True, blank=True, related_name='cars')
     features = models.ManyToManyField(Feature, blank=True, related_name='cars')
+    published_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='published_cars', null=True, blank=True)  # user who published this car
 
     class Meta:
         ordering = ['-year', 'brand', 'model', ]

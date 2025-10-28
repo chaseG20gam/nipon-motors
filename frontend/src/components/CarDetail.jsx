@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { carsAPI } from '../services/api';
+import { AuthContext } from '../contexts/AuthContext';
 import './CarDetail.css';
 
 const CarDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user, isAuthenticated } = useContext(AuthContext);
   const [car, setCar] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [deleteLoading, setDeleteLoading] = useState(false);
 
   useEffect(() => {
     fetchCarDetail();
@@ -42,6 +45,36 @@ const CarDetail = () => {
       day: 'numeric',
     });
   };
+
+  const handleDeleteCar = async () => {
+    if (!window.confirm('Are you sure you want to delete this car listing? This action cannot be undone.')) {
+      return;
+    }
+
+    setDeleteLoading(true);
+    try {
+      const token = localStorage.getItem('access_token');
+      const response = await fetch(`http://localhost:8000/cars/api/cars/${id}/`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (response.ok) {
+        navigate('/cars');
+      } else {
+        setError('Failed to delete car listing. Please try again.');
+      }
+    } catch (error) {
+      setError('An error occurred while deleting the car listing.');
+      console.error('Error deleting car:', error);
+    } finally {
+      setDeleteLoading(false);
+    }
+  };
+
+  const isOwner = isAuthenticated && user && car && car.published_by && user.username === car.published_by.username;
 
   if (loading) {
     return (
@@ -173,6 +206,12 @@ const CarDetail = () => {
           {/* info list */}
           <div className="detail-card">
             <h3>Listing Information</h3>
+            {car.published_by && (
+              <div className="detail-row">
+                <span className="detail-label">Published by:</span>
+                <span className="detail-value">{car.published_by.username}</span>
+              </div>
+            )}
             <div className="detail-row">
               <span className="detail-label">Listed on:</span>
               <span className="detail-value">{formatDate(car.created_at)}</span>
@@ -206,8 +245,28 @@ const CarDetail = () => {
 
       {/* buttons */}
       <div className="car-actions">
-        <button className="contact-btn">Contact Owner</button>
-        <button className="save-btn">Save to Favorites</button>
+        {isOwner ? (
+          <>
+            <button 
+              onClick={() => navigate(`/cars/${id}/edit`)}
+              className="edit-btn"
+            >
+              Edit Listing
+            </button>
+            <button 
+              onClick={handleDeleteCar}
+              disabled={deleteLoading}
+              className="delete-btn"
+            >
+              {deleteLoading ? 'Deleting...' : 'Delete Listing'}
+            </button>
+          </>
+        ) : (
+          <>
+            <button className="contact-btn">Contact Owner</button>
+            <button className="save-btn">Save to Favorites</button>
+          </>
+        )}
         <button className="share-btn">Share Listing</button>
       </div>
 

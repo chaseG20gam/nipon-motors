@@ -1,8 +1,22 @@
 from rest_framework import generics, filters, permissions
+from rest_framework.permissions import BasePermission
 from .models import Car, Feature, Owner
 from .serializers import CarSerializer, FeatureSerializer, OwnerSerializer
 from django_filters.rest_framework import DjangoFilterBackend
 import django_filters
+
+# custom permission for car ownership
+class IsOwnerOrReadOnly(BasePermission):
+    """
+    custom permission to only allow owners of a car to edit/delete it.
+    """
+    def has_object_permission(self, request, view, obj):
+        # read permissions are allowed to any request, so we'll always allow GET, HEAD or OPTIONS requests.
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        
+        # write permissions are only allowed to the owner of the car.
+        return obj.published_by == request.user
 
 # custom filter for car model
 class CarFilter(django_filters.FilterSet):
@@ -24,16 +38,23 @@ class CarListCreateAPI(generics.ListCreateAPIView):
     ordering_fields = ['_price', 'year', '_mileage', 'created_at']
     
     def perform_create(self, serializer):
-        # auto assign the current user as owner if no owner specified
-        if not serializer.validated_data.get('owner'):
-            # future logic to assign owner based on request user?
-            pass
+        # the published_by field is automatically set in the serializer
         serializer.save()
 
 class CarRetrieveUpdateDestroyAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Car.objects.all()
     serializer_class = CarSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
+
+class UserCarsListAPI(generics.ListAPIView):
+    """
+    API endpoint to list cars published by the current authenticated user
+    """
+    serializer_class = CarSerializer
+    permission_classes = [permissions.IsAuthenticated]
+    
+    def get_queryset(self):
+        return Car.objects.filter(published_by=self.request.user)
 
 # Feature API views
 class FeatureListCreateAPI(generics.ListCreateAPIView):

@@ -21,6 +21,7 @@ urlpatterns = [
     # API endpoints
     path('api/cars/', api_views.CarListCreateAPI.as_view(), name='api_car_list'),
     path('api/cars/<int:pk>/', api_views.CarRetrieveUpdateDestroyAPI.as_view(), name='api_car_detail'),
+    path('api/my-cars/', api_views.UserCarsListAPI.as_view(), name='api_user_cars'),
     
     # feature API endpoints
     path('api/features/', api_views.FeatureListCreateAPI.as_view(), name='api_feature_list'),

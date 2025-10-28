@@ -150,6 +150,24 @@
   margin-left: 3px;
 }
 
+.japanese-nav .add-car-link:after {
+  content: ' 追加';
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin-left: 3px;
+}
+
+.add-car-link {
+  background: linear-gradient(135deg, #6b8e23 0%, #89bd22 100%) !important; /* gradient effect */
+  color: white !important;
+  border: 1px solid rgba(40, 167, 69, 0.3) !important;
+}
+
+.add-car-link:hover {
+  background: linear-gradient(135deg, #89bd22 0%, #afeb39 100%) !important;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3) !important;
+}
+
 .japanese-nav .login-link:after {
   content: ' ログイン';
   font-size: 0.8em;

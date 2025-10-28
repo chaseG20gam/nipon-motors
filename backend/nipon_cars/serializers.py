@@ -1,5 +1,11 @@
 from rest_framework import serializers
+from django.contrib.auth.models import User
 from .models import Car, Feature, Owner
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'first_name', 'last_name']
 
 class FeatureSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,6 +20,7 @@ class OwnerSerializer(serializers.ModelSerializer):
 class CarSerializer(serializers.ModelSerializer):
     features = FeatureSerializer(many=True, read_only=True)
     owner = OwnerSerializer(read_only=True)
+    published_by = UserSerializer(read_only=True)
     
     # property fields
     mileage = serializers.IntegerField(source='_mileage')
@@ -31,11 +38,16 @@ class CarSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Car
-        fields = ['id', 'title', 'brand', 'model', 'year', 'mileage', 'price', 'fuel_type', 'prefecture', 'image', 'owner', 'owner_id', 'features', 'feature_ids', 'created_at', 'updated_at']
+        fields = ['id', 'title', 'brand', 'model', 'year', 'mileage', 'price', 'fuel_type', 'prefecture', 'image', 'owner', 'owner_id', 'features', 'feature_ids', 'published_by', 'created_at', 'updated_at']
     
     def create(self, validated_data):
         feature_ids = validated_data.pop('feature_ids', [])
         owner_id = validated_data.pop('owner_id', None)
+        
+        # set published_by to the current user from context
+        request = self.context.get('request')
+        if request and hasattr(request, 'user'):
+            validated_data['published_by'] = request.user
         
         car = Car.objects.create(**validated_data)
         

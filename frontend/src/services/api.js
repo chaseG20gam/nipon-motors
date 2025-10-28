@@ -111,7 +111,7 @@ export const featuresAPI = {
   },
 };
 
-// Owners API
+// owners API
 export const ownersAPI = {
   getAllOwners: async () => {
     const response = await api.get('/cars/api/owners/');

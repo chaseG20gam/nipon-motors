@@ -15,12 +15,15 @@ const Navigation = () => {
           <Link to="/cars" className="cars-link">Cars</Link>
           
           {isAuthenticated ? (
-            <div className="nav-user">
-              <span className="welcome-text"> {user?.username}!</span>
-              <button onClick={logout} className="logout-btn">
-                Logout
-              </button>
-            </div>
+            <>
+              <Link to="/cars/add" className="add-car-link">Add Car</Link>
+              <div className="nav-user">
+                <span className="welcome-text"> {user?.username}!</span>
+                <button onClick={logout} className="logout-btn">
+                  Logout
+                </button>
+              </div>
+            </>
           ) : (
             <Link to="/login" className="login-link">Login</Link>
           )}

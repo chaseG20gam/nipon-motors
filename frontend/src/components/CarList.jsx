@@ -268,6 +268,12 @@ const CarList = () => {
                   <span className="car-location">{car.prefecture}</span>
                 </div>
 
+                {car.published_by && (
+                  <div className="car-owner">
+                    <small>Published by: {car.published_by.username}</small>
+                  </div>
+                )}
+
                 {car.owner && (
                   <div className="car-owner">
                     <small>Owner: {car.owner.name}</small>
