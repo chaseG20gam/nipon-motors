@@ -71,9 +71,11 @@ class FeatureRetrieveUpdateDestroyAPI(generics.RetrieveUpdateDestroyAPIView):
 class OwnerListCreateAPI(generics.ListCreateAPIView):
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly] # permit all to view, only authenticated tto create 
     filter_backends = [filters.SearchFilter]
     search_fields = ['name', 'email']
 
 class OwnerRetrieveUpdateDestroyAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Owner.objects.all()
     serializer_class = OwnerSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly] # permit all to view, only authenticated to edit/delete
