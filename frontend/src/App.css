@@ -42,6 +42,12 @@ body {
   padding: 0;
 }
 
+/* remove default spacing and background for error pages */
+.main-content:has(.error-page) {
+  padding: 0;
+  background: transparent;
+}
+
 /* typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;

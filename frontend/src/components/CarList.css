@@ -65,7 +65,7 @@
 
 /* search and filters section */
 .search-filters {
-  background: rgba(255, 255, 255, 0.95);
+  background: #E6D8B8;
   backdrop-filter: blur(10px);
   padding: 40px;
   margin: 40px 20px;
@@ -161,7 +161,7 @@
 }
 
 .car-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #E6D8B8;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 20px;

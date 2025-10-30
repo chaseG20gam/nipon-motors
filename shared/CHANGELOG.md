@@ -1,13 +1,36 @@
 # changelog
 
+## [1.4.1] - 2025-10-30
+
+### added
+- custom 404 and 500 error pages with soft, friendly pastel design
+- mascot integration in error pages (mascot404.png) and over the app
+- footer component with debug links and branding
+- catch-all route for proper 404 handling
+
+### enhanced
+- error pages with soft pink/lavender color scheme (testing)
+- footer styling
+
+### improved
+- app layout with footer integration
+- CSS specificity for error pages
+- main content wrapper styling for home and error pages
+- responsive footer design for mobile devices
+
+### technical
+- new NotFound component (404.jsx) with mascot and soft, different colors
+- new ServerError component (500.jsx) same as 404.jsx
+- new Footer component 
+- wildcard route (*) for unmatched URLs
+
 ## [1.4.0] - 2025-10-28
 
 ### added
 - japanese-style floating side panels with glass morphism effects
 - user car management system with CRUD operations
 - background image integration in promotional panels
-- add car functionality with feature selection
-- edit car functionality with ownership validation
+- add and edit car functionality with feature selection with owner validation
 - delete car capability restricted to car owners
 - colorful text styling with CSS outlines for image overlays
 - published by field linking cars to their creators
@@ -17,7 +40,6 @@
 - floating panels positioning closer to header
 - font sizes increased for better visibility
 - CSS text-stroke effects for improved contrast
-- panel content with Japanese/English bilingual text
 - user authentication context with car ownership checks
 
 ### improved
@@ -25,15 +47,12 @@
 - paginated responses for features and car data
 - FormData handling for image uploads
 - error handling with content-type validation
-- CSS styling with reduced outline thickness
 - responsive panel layout and positioning
 
 ### technical
 - IsOwnerOrReadOnly permission class implementation
 - car model updated with published_by foreign key
 - serializers enhanced with user context
-- database migrations for ownership tracking
-- japanese typography and design elements integration
 
 ## [1.3.0] - 2025-10-27
 

@@ -124,7 +124,7 @@ const AddCar = () => {
         }
       });
 
-      // Debug: Log the FormData contents
+      // debug log
       console.log('FormData being sent:');
       for (let [key, value] of formDataToSend.entries()) {
         console.log(key, value);

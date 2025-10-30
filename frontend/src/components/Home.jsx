@@ -54,10 +54,10 @@ const Home = () => {
           <div className="panel-content">
             <div className="quick-search-options">
               <Link to="/cars?fuel_type=ELECTRIC" className="quick-option electric">
-                ⚡ 電気自動車
+                電気自動車
               </Link>
               <Link to="/cars?fuel_type=HYBRID" className="quick-option hybrid">
-                🌱 ハイブリッド
+                ハイブリッド
               </Link>
             </div>
           </div>
@@ -121,14 +121,16 @@ const Home = () => {
             </h1>
             <img src='/nm-logo.png' alt='Nipon Motors Logo' className='hero-logo' />
             <div className="hero-subtitle-container">
-              <p className="hero-subtitle"> Discover your perfect ride from Japan's finest selection of premium vehicles
-              </p>
-              <p className="hero-subtitle-japanese"> 最高品質の日本車をお届けします
-              </p>
+              <p className="hero-subtitle"> Experience Japan's Legacy of Automotive Perfection.</p>
+              <p className="hero-subtitle-japanese"> 最高品質の日本車をお届けします</p>
+              <p className="hero-subtitle-japanese"> Driven by Tradition. Perfected by Passion.</p>
             </div>
             <div className="hero-stats">
               <div className="stat-item">
-                <span className="stat-number">1000+</span>
+                <div className="stat-number-container">
+                  <span className="stat-number">1000+</span>
+                  <img src="/mascotsale.png" alt="Mascot" className="stat-mascot" />
+                </div>
                 <span className="stat-label">Premium Cars</span>
                 <span className="stat-label-japanese">プレミアム車</span>
               </div>

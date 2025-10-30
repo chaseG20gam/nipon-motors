@@ -94,7 +94,7 @@ const Login = () => {
           
           <div className="demo-credentials">
             <div className="demo-header">
-              <strong>Admin Credentials</strong>
+              <strong>Admin Credentials (DEV TOOL)</strong>
             </div>
             <div className="demo-info">
               <div className="demo-item">

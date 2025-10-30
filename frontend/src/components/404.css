@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+.error-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 50%, #ffd4e5 100%);
+  padding: 2rem;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 32px rgba(255, 182, 193, 0.3);
+  border: 2px solid rgba(255, 192, 203, 0.4);
+}
+
+.error-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.error-mascot {
+  width: 150px;
+  height: auto;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #ff9eb5;
+  margin: 0;
+  text-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+  line-height: 1;
+}
+
+.error-title {
+  font-size: 2rem;
+  color: #ff6b9d;
+  margin: 1rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.error-subtitle {
+  font-size: 1.2rem;
+  color: #b8a0d4;
+  margin: 0 0 2rem;
+  font-weight: 300;
+}
+
+.error-message {
+  color: #666;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.error-message-en {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 2rem;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.error-button {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.error-button.primary {
+  background: linear-gradient(135deg, #ffb3d9, #ffc9e6);
+  color: white;
+}
+
+.error-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 179, 217, 0.5);
+  background: linear-gradient(135deg, #ff9ec9, #ffb3d9);
+}
+
+.error-button.secondary {
+  background: transparent;
+  color: #c49ce8;
+  border: 2px solid #c49ce8;
+}
+
+.error-button.secondary:hover {
+  background: #c49ce8;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.button-en {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .error-code {
+    font-size: 5rem;
+  }
+  
+  .error-title {
+    font-size: 1.5rem;
+  }
+  
+  .error-mascot {
+    width: 100px;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+  }
+  
+  .error-button {
+    width: 100%;
+  }
+}

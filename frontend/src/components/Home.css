@@ -104,6 +104,7 @@
 }
 
 .hero-title {
+  color: #E6D8B8;
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 30px;
@@ -127,6 +128,7 @@
   font-size: 1.3rem;
   margin-bottom: 10px;
   opacity: 0.9;
+  color: #E6D8B8;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -157,11 +159,24 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.stat-number-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .stat-number {
   display: block;
   font-size: 2.5rem;
   font-weight: 700;
   color: #ffd93d;
+  margin-bottom: 5px;
+}
+
+.stat-mascot {
+  width: 60px;
+  height: auto;
   margin-bottom: 5px;
 }
 
@@ -246,8 +261,8 @@
 
 .sakura {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 45px;
+  height: 45px;
   animation: fall linear infinite;
   opacity: 0.8;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
@@ -404,7 +419,7 @@
 }
 
 .features-section .section-title {
-  color: white;
+  color: #E6D8B8;
 }
 
 .features-section .section-title::before {
@@ -420,7 +435,7 @@
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: #e4dece;
   padding: 30px 20px;
   border-radius: 15px;
   text-align: center;
@@ -516,7 +531,7 @@
 }
 
 .categories-section .section-title {
-  color: white;
+  color: #E6D8B8;
 }
 
 .categories-section .section-title::before {
