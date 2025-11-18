@@ -1,5 +1,33 @@
 # changelog
 
+## [1.5.0] - 2025-11-18
+
+### added
+- complete Docker containerization with multi-stage builds
+- NGINX reverse proxy configuration with API routing
+- PostgreSQL database integration with data migration
+- environment variable management with security best practices
+- comprehensive documentation (DOCKER_QUICKSTART.md)
+- automatic static file collection and media serving
+- production-ready configuration with Gunicorn WSGI server
+
+### enhanced
+- frontend build optimization from 1.2GB to 25MB final image
+- database migration from SQLite to PostgreSQL (77 cars + 2 users)
+
+### technical
+- multi-stage Docker builds (Node 20 alpine + NGINX alpine)
+- production Django settings with environment variable configuration  
+- NGINX location blocks for static files, media, and API proxy
+- Docker volume management for persistent data and shared media
+- health checks and service dependencies in Docker Compose
+
+### fixed
+- removed hardcoded localhost:8000 URLs from all frontend components
+- CORS configuration for containerized environment
+- image serving through NGINX with proper media volume mounting
+- API authentication token handling in production environment
+
 ## [1.4.1] - 2025-10-30
 
 ### added
