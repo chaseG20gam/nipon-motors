@@ -1,0 +1,1303 @@
+[
+{
+  "model": "nipon_cars.feature",
+  "pk": 1,
+  "fields": {
+    "name": "sunroof"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 2,
+  "fields": {
+    "name": "navigation"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 3,
+  "fields": {
+    "name": "air conditioning"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 4,
+  "fields": {
+    "name": "leather seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 5,
+  "fields": {
+    "name": "backup camera"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 6,
+  "fields": {
+    "name": "automatic transmision"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 7,
+  "fields": {
+    "name": "heated seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 8,
+  "fields": {
+    "name": "ABS"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 9,
+  "fields": {
+    "name": "automatic transmission"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 10,
+  "fields": {
+    "name": "cruise control"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 11,
+  "fields": {
+    "name": "bluetooth"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 12,
+  "fields": {
+    "name": "parking sensors"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 13,
+  "fields": {
+    "name": "keyless entry"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 14,
+  "fields": {
+    "name": "alloy wheels"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 15,
+  "fields": {
+    "name": "fog lights"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 16,
+  "fields": {
+    "name": "tinted windows"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 17,
+  "fields": {
+    "name": "premium sound system"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 18,
+  "fields": {
+    "name": "lane departure warning"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 19,
+  "fields": {
+    "name": "blind spot monitoring"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 20,
+  "fields": {
+    "name": "adaptive cruise control"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 21,
+  "fields": {
+    "name": "heated steering wheel"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 22,
+  "fields": {
+    "name": "memory seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 23,
+  "fields": {
+    "name": "ambient lighting"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 24,
+  "fields": {
+    "name": "wireless charging"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 25,
+  "fields": {
+    "name": "head-up display"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 26,
+  "fields": {
+    "name": "panoramic roof"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 27,
+  "fields": {
+    "name": "ventilated seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 28,
+  "fields": {
+    "name": "massage seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 29,
+  "fields": {
+    "name": "premium interior"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 30,
+  "fields": {
+    "name": "carbon fiber trim"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 31,
+  "fields": {
+    "name": "sport suspension"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 32,
+  "fields": {
+    "name": "performance exhaust"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 33,
+  "fields": {
+    "name": "turbo engine"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 34,
+  "fields": {
+    "name": "all-wheel drive"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 35,
+  "fields": {
+    "name": "limited slip differential"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 36,
+  "fields": {
+    "name": "racing seats"
+  }
+},
+{
+  "model": "nipon_cars.feature",
+  "pk": 37,
+  "fields": {
+    "name": "roll cage"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 1,
+  "fields": {
+    "name": "Demo Owner 0",
+    "email": "owner0@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 2,
+  "fields": {
+    "name": "Demo Owner 1",
+    "email": "owner1@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 3,
+  "fields": {
+    "name": "Demo Owner 2",
+    "email": "owner2@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 4,
+  "fields": {
+    "name": "Demo Owner 3",
+    "email": "owner3@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 5,
+  "fields": {
+    "name": "Demo Owner 4",
+    "email": "owner4@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 6,
+  "fields": {
+    "name": "Demo Owner 5",
+    "email": "owner5@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 7,
+  "fields": {
+    "name": "Demo Owner 6",
+    "email": "owner6@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 8,
+  "fields": {
+    "name": "Demo Owner 7",
+    "email": "owner7@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 9,
+  "fields": {
+    "name": "Demo Owner 8",
+    "email": "owner8@example.com"
+  }
+},
+{
+  "model": "nipon_cars.owner",
+  "pk": 10,
+  "fields": {
+    "name": "Demo Owner 9",
+    "email": "owner9@example.com"
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 1,
+  "fields": {
+    "title": "Sedan",
+    "created_at": "2025-10-23T11:51:49.247Z",
+    "updated_at": "2025-10-24T22:01:35.978Z",
+    "brand": "Toyota",
+    "model": "Corolla",
+    "year": 2018,
+    "_mileage": 30000,
+    "_price": "15000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/366325_2019_Toyota_Corolla_DWpcTHG.jpg",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 2,
+  "fields": {
+    "title": "Sports Car",
+    "created_at": "2025-10-23T11:51:49.250Z",
+    "updated_at": "2025-10-24T21:59:14.252Z",
+    "brand": "Honda",
+    "model": "Civic",
+    "year": 2019,
+    "_mileage": 25000,
+    "_price": "18000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/02-honda-civic-sport-2019-angle--exterior--front--mountains--outdoors--white_F6aECuI.jpg",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 3,
+  "fields": {
+    "title": "Utility",
+    "created_at": "2025-10-23T11:51:49.252Z",
+    "updated_at": "2025-10-24T21:56:44.533Z",
+    "brand": "Nissan",
+    "model": "Leaf",
+    "year": 2020,
+    "_mileage": 15000,
+    "_price": "22000.00",
+    "fuel_type": "ELECTRIC",
+    "prefecture": "Kyoto",
+    "image": "car_images/2020nissannissanleafsvplus-2-source1-min_3Iq2Uv2.jpg",
+    "owner": 3,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      6
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 4,
+  "fields": {
+    "title": "SUV",
+    "created_at": "2025-10-23T11:51:49.254Z",
+    "updated_at": "2025-10-24T22:04:03.219Z",
+    "brand": "Mazda",
+    "model": "CX-5",
+    "year": 2017,
+    "_mileage": 40000,
+    "_price": "20000.00",
+    "fuel_type": "DIESEL",
+    "prefecture": "Hokkaido",
+    "image": "car_images/314329_2017_Mazda_CX-5_tnTl3yN.jpg",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      4,
+      5,
+      7
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 5,
+  "fields": {
+    "title": "Utility",
+    "created_at": "2025-10-23T11:51:49.256Z",
+    "updated_at": "2025-10-24T20:44:39.535Z",
+    "brand": "Subaru",
+    "model": "Impreza",
+    "year": 2021,
+    "_mileage": 10000,
+    "_price": "25000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Fukuoka",
+    "image": "car_images/DSCN4613_DNtDaIT.jpg",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      1,
+      4,
+      5,
+      7
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 6,
+  "fields": {
+    "title": "Sports Car",
+    "created_at": "2025-10-24T11:36:17.921Z",
+    "updated_at": "2025-10-24T22:09:57.877Z",
+    "brand": "Honda",
+    "model": "Civic Type R",
+    "year": 2024,
+    "_mileage": 5000,
+    "_price": "45000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/np4r7wfxo2jc1_rxDpRJ8.jpeg",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      3
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 7,
+  "fields": {
+    "title": "Nissan Skyline GT-R R34 (1999)",
+    "created_at": "2025-10-27T19:22:02.764Z",
+    "updated_at": "2025-10-27T19:59:39.143Z",
+    "brand": "Nissan",
+    "model": "Skyline GT-R R34",
+    "year": 1999,
+    "_mileage": 85000,
+    "_price": "120000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/mainimage.jpeg.jpg",
+    "owner": 8,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 8,
+  "fields": {
+    "title": "Toyota Supra MK4 (1997)",
+    "created_at": "2025-10-27T19:22:02.819Z",
+    "updated_at": "2025-10-27T19:59:50.953Z",
+    "brand": "Toyota",
+    "model": "Supra MK4",
+    "year": 1997,
+    "_mileage": 95000,
+    "_price": "95000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/1997-Toyota-Supra-Turbo-166.jpg",
+    "owner": 2,
+    "published_by": null,
+    "features": [
+      3,
+      7,
+      13,
+      15,
+      22,
+      24,
+      25,
+      27,
+      28,
+      29,
+      32,
+      33,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 9,
+  "fields": {
+    "title": "Honda NSX NA1 (1991)",
+    "created_at": "2025-10-27T19:22:02.867Z",
+    "updated_at": "2025-10-27T20:01:01.587Z",
+    "brand": "Honda",
+    "model": "NSX NA1",
+    "year": 1991,
+    "_mileage": 120000,
+    "_price": "85000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Kyoto",
+    "image": "car_images/1991-Honda-NSX-Black-Main.jpg",
+    "owner": 9,
+    "published_by": null,
+    "features": [
+      2,
+      3,
+      4,
+      7,
+      10,
+      15,
+      16,
+      18,
+      26,
+      28,
+      29,
+      31,
+      32,
+      34,
+      35
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 10,
+  "fields": {
+    "title": "Mazda RX-7 FD (1995)",
+    "created_at": "2025-10-27T19:22:02.916Z",
+    "updated_at": "2025-10-27T20:00:47.590Z",
+    "brand": "Mazda",
+    "model": "RX-7 FD",
+    "year": 1995,
+    "_mileage": 105000,
+    "_price": "55000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Hiroshima",
+    "image": "car_images/DSC05469.jpg",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      10,
+      12,
+      14,
+      16,
+      17,
+      21,
+      24,
+      25,
+      27,
+      33,
+      35,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 11,
+  "fields": {
+    "title": "Mitsubishi Lancer Evolution IX (2006)",
+    "created_at": "2025-10-27T19:22:02.970Z",
+    "updated_at": "2025-10-27T19:56:52.633Z",
+    "brand": "Mitsubishi",
+    "model": "Lancer Evolution IX",
+    "year": 2006,
+    "_mileage": 75000,
+    "_price": "45000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/Mitsubishi-Lancer-EVO-IX-16991.jpg",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      7,
+      12,
+      15,
+      16,
+      22,
+      24,
+      28,
+      30,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 12,
+  "fields": {
+    "title": "Subaru Impreza WRX STI (2004)",
+    "created_at": "2025-10-27T19:22:03.019Z",
+    "updated_at": "2025-10-27T19:57:26.238Z",
+    "brand": "Subaru",
+    "model": "Impreza WRX STI",
+    "year": 2004,
+    "_mileage": 90000,
+    "_price": "35000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Fukuoka",
+    "image": "car_images/9n4E1dvD-w1SHqV3zrP-edit.jpg",
+    "owner": 2,
+    "published_by": null,
+    "features": [
+      10,
+      11,
+      13,
+      14,
+      16,
+      21,
+      29,
+      32,
+      35
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 13,
+  "fields": {
+    "title": "Suzuki Swift Sport (2020)",
+    "created_at": "2025-10-27T19:22:03.074Z",
+    "updated_at": "2025-10-27T19:55:08.433Z",
+    "brand": "Suzuki",
+    "model": "Swift Sport",
+    "year": 2020,
+    "_mileage": 15000,
+    "_price": "16000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/Prueba_Suzuki_Swift_Sport_48v_mild_hybrid_2020_Ruben_Fidalgo__1_.jpg",
+    "owner": 9,
+    "published_by": null,
+    "features": [
+      2,
+      22,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 14,
+  "fields": {
+    "title": "Daihatsu Copen (2019)",
+    "created_at": "2025-10-27T19:22:03.104Z",
+    "updated_at": "2025-10-27T20:01:31.069Z",
+    "brand": "Daihatsu",
+    "model": "Copen",
+    "year": 2019,
+    "_mileage": 20000,
+    "_price": "14000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Kyoto",
+    "image": "car_images/76db938de2835db50cb3_1rkcgG2.JPG",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      3,
+      4,
+      7,
+      19,
+      20,
+      21,
+      30
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 15,
+  "fields": {
+    "title": "Honda Fit Hybrid (2021)",
+    "created_at": "2025-10-27T19:22:03.122Z",
+    "updated_at": "2025-10-27T19:51:46.183Z",
+    "brand": "Honda",
+    "model": "Fit Hybrid",
+    "year": 2021,
+    "_mileage": 8000,
+    "_price": "18000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/Honda-Fit21-12.jpg",
+    "owner": 7,
+    "published_by": null,
+    "features": [
+      3,
+      14,
+      19,
+      22,
+      23,
+      29,
+      31,
+      34
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 16,
+  "fields": {
+    "title": "Toyota Yaris (2020)",
+    "created_at": "2025-10-27T19:22:03.135Z",
+    "updated_at": "2025-10-27T19:53:12.743Z",
+    "brand": "Toyota",
+    "model": "Yaris",
+    "year": 2020,
+    "_mileage": 12000,
+    "_price": "16500.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Osaka",
+    "image": "car_images/maxresdefault.jpg",
+    "owner": 7,
+    "published_by": null,
+    "features": [
+      12,
+      13,
+      16,
+      32,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 17,
+  "fields": {
+    "title": "Nissan Note e-Power (2021)",
+    "created_at": "2025-10-27T19:22:03.149Z",
+    "updated_at": "2025-10-27T19:51:21.163Z",
+    "brand": "Nissan",
+    "model": "Note e-Power",
+    "year": 2021,
+    "_mileage": 5000,
+    "_price": "19000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/Nissan-Note-III-E13-Aura.jpg",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      2,
+      3,
+      13,
+      16,
+      17,
+      22,
+      34
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 18,
+  "fields": {
+    "title": "Lexus LS 500 (2022)",
+    "created_at": "2025-10-27T19:22:03.162Z",
+    "updated_at": "2025-10-27T19:49:54.987Z",
+    "brand": "Lexus",
+    "model": "LS 500",
+    "year": 2022,
+    "_mileage": 3000,
+    "_price": "75000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/LC500.webp",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      10,
+      11,
+      16,
+      19,
+      20,
+      31,
+      32,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 19,
+  "fields": {
+    "title": "Infiniti Q70 (2020)",
+    "created_at": "2025-10-27T19:22:03.175Z",
+    "updated_at": "2025-10-27T19:52:59.033Z",
+    "brand": "Infiniti",
+    "model": "Q70",
+    "year": 2020,
+    "_mileage": 18000,
+    "_price": "42000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/2016-infiniti-q70-review.jpg",
+    "owner": 9,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      9,
+      14,
+      17,
+      20,
+      23,
+      25,
+      30,
+      33
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 20,
+  "fields": {
+    "title": "Acura NSX (2019)",
+    "created_at": "2025-10-27T19:22:03.189Z",
+    "updated_at": "2025-10-27T19:56:22.604Z",
+    "brand": "Acura",
+    "model": "NSX",
+    "year": 2019,
+    "_mileage": 8000,
+    "_price": "140000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/2018-Acura-NSX-main-image.jpg",
+    "owner": 8,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      12,
+      13,
+      15,
+      17,
+      18,
+      19,
+      20,
+      23,
+      25,
+      26,
+      27,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 21,
+  "fields": {
+    "title": "Lexus LC 500 (2021)",
+    "created_at": "2025-10-27T19:22:03.202Z",
+    "updated_at": "2025-10-27T19:51:08.717Z",
+    "brand": "Lexus",
+    "model": "LC 500",
+    "year": 2021,
+    "_mileage": 5000,
+    "_price": "92000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Kyoto",
+    "image": "car_images/sddefault.jpg",
+    "owner": 1,
+    "published_by": null,
+    "features": [
+      2,
+      9,
+      10,
+      11,
+      14,
+      15,
+      16,
+      22,
+      28,
+      29,
+      32,
+      33,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 22,
+  "fields": {
+    "title": "Honda CR-V Hybrid (2022)",
+    "created_at": "2025-10-27T19:22:03.214Z",
+    "updated_at": "2025-10-27T19:49:31.683Z",
+    "brand": "Honda",
+    "model": "CR-V Hybrid",
+    "year": 2022,
+    "_mileage": 8000,
+    "_price": "32000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/JDPA_2020-Honda-Pilot-Black-Edition.jpg",
+    "owner": 6,
+    "published_by": null,
+    "features": [
+      11,
+      16,
+      20,
+      25,
+      34,
+      36,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 23,
+  "fields": {
+    "title": "Toyota RAV4 (2021)",
+    "created_at": "2025-10-27T19:22:03.229Z",
+    "updated_at": "2025-10-27T19:50:37.013Z",
+    "brand": "Toyota",
+    "model": "RAV4",
+    "year": 2021,
+    "_mileage": 12000,
+    "_price": "28000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/lanzamiento-toyota-rav4-2021.jpg",
+    "owner": 2,
+    "published_by": null,
+    "features": [
+      3,
+      5,
+      7,
+      10,
+      14,
+      20,
+      30
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 24,
+  "fields": {
+    "title": "Subaru Forester (2020)",
+    "created_at": "2025-10-27T19:22:03.243Z",
+    "updated_at": "2025-10-27T19:52:23.983Z",
+    "brand": "Subaru",
+    "model": "Forester",
+    "year": 2020,
+    "_mileage": 25000,
+    "_price": "26000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Hokkaido",
+    "image": "car_images/01011181932-1-1-3.jpg",
+    "owner": 3,
+    "published_by": null,
+    "features": [
+      15,
+      19,
+      34
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 25,
+  "fields": {
+    "title": "Mazda CX-9 (2021)",
+    "created_at": "2025-10-27T19:22:03.256Z",
+    "updated_at": "2025-10-27T19:50:09.760Z",
+    "brand": "Mazda",
+    "model": "CX-9",
+    "year": 2021,
+    "_mileage": 15000,
+    "_price": "35000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Osaka",
+    "image": "car_images/2023-Mazda-CX-9-Signature_Exterior_Drivers_Side.webp",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      3,
+      12,
+      14,
+      16,
+      17,
+      20,
+      22,
+      26,
+      31,
+      33,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 26,
+  "fields": {
+    "title": "Honda Pilot (2020)",
+    "created_at": "2025-10-27T19:22:03.272Z",
+    "updated_at": "2025-10-27T19:52:09.241Z",
+    "brand": "Honda",
+    "model": "Pilot",
+    "year": 2020,
+    "_mileage": 22000,
+    "_price": "33000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/JDPA_2020-Honda-Pilot-Black-Edition_jKgvhdi.jpg",
+    "owner": 4,
+    "published_by": null,
+    "features": [
+      3,
+      5,
+      7,
+      12,
+      13,
+      18,
+      20,
+      23,
+      35,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 27,
+  "fields": {
+    "title": "Nissan GT-R NISMO (2023)",
+    "created_at": "2025-10-27T19:22:03.282Z",
+    "updated_at": "2025-10-27T19:47:25.326Z",
+    "brand": "Nissan",
+    "model": "GT-R NISMO",
+    "year": 2023,
+    "_mileage": 500,
+    "_price": "180000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/nissan-gt-r-2023-tres-soymotor.jpg",
+    "owner": 3,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      13,
+      14,
+      15,
+      18,
+      22,
+      23,
+      25,
+      27,
+      28,
+      34,
+      35,
+      36,
+      37
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 28,
+  "fields": {
+    "title": "Honda NSX Type S (2022)",
+    "created_at": "2025-10-27T19:22:03.298Z",
+    "updated_at": "2025-10-27T19:48:34.658Z",
+    "brand": "Honda",
+    "model": "NSX Type S",
+    "year": 2022,
+    "_mileage": 1200,
+    "_price": "165000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Tokyo",
+    "image": "car_images/2022-acura-nsx-type-s-009.webp",
+    "owner": 10,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21,
+      22,
+      24,
+      25,
+      26,
+      27,
+      29,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 29,
+  "fields": {
+    "title": "Lexus LFA (2012)",
+    "created_at": "2025-10-27T19:22:03.313Z",
+    "updated_at": "2025-10-27T19:57:16.631Z",
+    "brand": "Lexus",
+    "model": "LFA",
+    "year": 2012,
+    "_mileage": 8500,
+    "_price": "450000.00",
+    "fuel_type": "PETROL",
+    "prefecture": "Tokyo",
+    "image": "car_images/2012_lexus_lfa_1622748794ac5bca9fca7cover.webp",
+    "owner": 9,
+    "published_by": null,
+    "features": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      28,
+      29,
+      30,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+},
+{
+  "model": "nipon_cars.car",
+  "pk": 30,
+  "fields": {
+    "title": "Luxury",
+    "created_at": "2025-10-28T20:40:44.026Z",
+    "updated_at": "2025-10-28T20:55:28.053Z",
+    "brand": "Toyota",
+    "model": "Century",
+    "year": 2019,
+    "_mileage": 75000,
+    "_price": "24300000.00",
+    "fuel_type": "HYBRID",
+    "prefecture": "Kanagawa",
+    "image": "car_images/toyotacenntury.jpg",
+    "owner": null,
+    "published_by": 1,
+    "features": [
+      2,
+      3,
+      4,
+      7,
+      8,
+      10
+    ]
+  }
+}
+]

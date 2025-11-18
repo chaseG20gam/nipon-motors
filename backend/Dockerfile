@@ -25,14 +25,14 @@ RUN apt-get update && apt-get install -y \
 
 # copy requirements file first
 # if requirements don't change, this layer is cached and won't reinstall
-COPY ../shared/requirements.txt .
+COPY shared/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # install gunicorn (production WSGI server)
 RUN pip install --no-cache-dir gunicorn
 
 # copy the entire backend code
-COPY . .
+COPY backend/ .
 
 # create directory for uploaded images
 RUN mkdir -p /app/media/car_images

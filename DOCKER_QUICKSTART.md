@@ -1,18 +1,18 @@
-# 🐳 Docker Quick Start Guide
+# Docker Quick Start Guide
 
 ## First Time Setup
 
 ```bash
-# 1. Generate environment variables
+# 1. generate environment variables
 ./generate-env.sh
 
-# 2. Build and start all services
+# 2. build and start all services
 docker-compose up --build
 
-# 3. In a new terminal, create superuser
+# 3. in a new terminal, create superuser
 docker-compose exec backend python manage.py createsuperuser
 
-# 4. (Optional) Seed sample data
+# 4. (optional) seed sample data
 docker-compose exec backend python manage.py seedcars
 ```
 
@@ -25,25 +25,25 @@ docker-compose exec backend python manage.py seedcars
 ## Common Commands
 
 ```bash
-# Start services (after first build)
+# start services (after first build)
 docker-compose up
 
-# Start in background
+# start in background
 docker-compose up -d
 
-# Stop services
+# stop services
 docker-compose down
 
-# Rebuild after code changes
+# rebuild after code changes
 docker-compose up --build
 
-# View logs
+# view logs
 docker-compose logs -f
 
-# Run Django commands
+# run django commands
 docker-compose exec backend python manage.py <command>
 
-# Access database
+# access database
 docker-compose exec db psql -U postgres -d nipon_motors
 ```
 
@@ -68,20 +68,20 @@ User → NGINX (Port 80)
 
 **Port 80 already in use?**
 ```bash
-# Change port in docker-compose.yml
+# change port in docker-compose.yml
 ports: ["8080:80"]  # Access via http://localhost:8080
 ```
 
 **Database errors?**
 ```bash
-# Reset database
-docker-compose down -v  # Deletes volumes!
+# reset database
+docker-compose down -v  # deletes volumes!
 docker-compose up --build
 ```
 
 **Frontend not updating?**
 ```bash
-# Rebuild frontend only
+# rebuild frontend only
 docker-compose build frontend
 docker-compose up
 ```

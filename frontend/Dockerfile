@@ -1,11 +1,11 @@
 # frontend dockerfile - multi-stage build
-# stage 1: build the react app with node.js
+# stage 1: build the react app with node
 # stage 2: serve with NGINX
 
 # ============================================
-# STAGE 1: builder - compile react application
+# stage 1: builder - compile react app
 # ============================================
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # alpine is a super lightweight linux (5MB vs 100MB+)
 WORKDIR /app

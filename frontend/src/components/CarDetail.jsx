@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { carsAPI } from '../services/api';
+import { carsAPI, API_BASE_URL } from '../services/api';
 import { AuthContext } from '../contexts/AuthContext';
 import './CarDetail.css';
 
@@ -53,19 +53,8 @@ const CarDetail = () => {
 
     setDeleteLoading(true);
     try {
-      const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/cars/api/cars/${id}/`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      });
-
-      if (response.ok) {
-        navigate('/cars');
-      } else {
-        setError('Failed to delete car listing. Please try again.');
-      }
+      await carsAPI.deleteCar(id);
+      navigate('/cars');
     } catch (error) {
       setError('An error occurred while deleting the car listing.');
       console.error('Error deleting car:', error);
@@ -141,7 +130,7 @@ const CarDetail = () => {
       {car.image && (
         <div className="car-image-section">
           <img 
-            src={car.image.startsWith('http') ? car.image : `http://localhost:8000${car.image}`} 
+            src={car.image.startsWith('http') ? car.image : car.image} 
             alt={`${car.brand} ${car.model}`}
             className="car-detail-image"
             onError={(e) => {

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000';
+// in production (docker): use /api (nginx proxies to backend)
+// in development: use http://localhost:8000 (direct backend connection)
+export const API_BASE_URL = import.meta.env.PROD ? '/api' : 'http://localhost:8000';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -35,7 +37,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('refresh_token');
       if (refreshToken) {
         try {
-          const response = await axios.post(`${API_BASE_URL}/api/token/refresh/`, {
+          const response = await axios.post(`${API_BASE_URL}/token/refresh/`, {
             refresh: refreshToken,
           });
           
@@ -61,12 +63,12 @@ api.interceptors.response.use(
 // auth API
 export const authAPI = {
   login: async (username, password) => {
-    const response = await api.post('/api/token/', { username, password });
+    const response = await api.post('/token/', { username, password });
     return response.data;
   },
   
   refreshToken: async (refreshToken) => {
-    const response = await api.post('/api/token/refresh/', { refresh: refreshToken });
+    const response = await api.post('/token/refresh/', { refresh: refreshToken });
     return response.data;
   },
 };
@@ -74,39 +76,39 @@ export const authAPI = {
 // cars API
 export const carsAPI = {
   getAllCars: async (params = {}) => {
-    const response = await api.get('/cars/api/cars/', { params });
+    const response = await api.get('/cars/', { params });
     return response.data;
   },
   
   getCarById: async (id) => {
-    const response = await api.get(`/cars/api/cars/${id}/`);
+    const response = await api.get(`/cars/${id}/`);
     return response.data;
   },
   
   createCar: async (carData) => {
-    const response = await api.post('/cars/api/cars/', carData);
+    const response = await api.post('/cars/', carData);
     return response.data;
   },
   
   updateCar: async (id, carData) => {
-    const response = await api.put(`/cars/api/cars/${id}/`, carData);
+    const response = await api.put(`/cars/${id}/`, carData);
     return response.data;
   },
   
   deleteCar: async (id) => {
-    await api.delete(`/cars/api/cars/${id}/`);
+    await api.delete(`/cars/${id}/`);
   },
 };
 
 // features API
 export const featuresAPI = {
   getAllFeatures: async () => {
-    const response = await api.get('/cars/api/features/');
+    const response = await api.get('/features/');
     return response.data;
   },
   
   createFeature: async (featureData) => {
-    const response = await api.post('/cars/api/features/', featureData);
+    const response = await api.post('/features/', featureData);
     return response.data;
   },
 };
@@ -114,12 +116,12 @@ export const featuresAPI = {
 // owners API
 export const ownersAPI = {
   getAllOwners: async () => {
-    const response = await api.get('/cars/api/owners/');
+    const response = await api.get('/owners/');
     return response.data;
   },
   
   createOwner: async (ownerData) => {
-    const response = await api.post('/cars/api/owners/', ownerData);
+    const response = await api.post('/owners/', ownerData);
     return response.data;
   },
 };

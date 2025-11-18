@@ -1,4 +1,4 @@
-# Python
+# python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -11,20 +11,20 @@ env.bak/
 venv.bak/
 *.egg-info/
 
-# Django
+# django
 *.log
 db.sqlite3
 db.sqlite3-journal
 /backend/media
 /backend/staticfiles
 
-# Node
+# node
 node_modules/
 /frontend/dist
 /frontend/build
 npm-debug.log*
 
-# Environment variables (IMPORTANT!)
+# env vars (IMPORTANT!)
 .env
 .env.local
 .env.production
@@ -37,14 +37,14 @@ npm-debug.log*
 *.swo
 *~
 
-# OS
+# os
 .DS_Store
 Thumbs.db
 
-# Docker
+# docker
 docker-compose.override.yml
 
-# Testing
+# testing
 .coverage
 htmlcov/
 .pytest_cache/

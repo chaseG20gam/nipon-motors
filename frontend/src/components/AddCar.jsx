@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import { API_BASE_URL } from '../services/api';
 import './AddCar.css';
 
 const AddCar = () => {
@@ -39,7 +40,7 @@ const AddCar = () => {
 
   const fetchFeatures = async () => {
     try {
-      const response = await fetch('http://localhost:8000/cars/api/features/');
+      const response = await fetch(`${API_BASE_URL}/features/`);
       if (response.ok) {
         const data = await response.json();
         // ensure data is an array - handle paginated response
@@ -58,7 +59,7 @@ const AddCar = () => {
 
   const fetchOwners = async () => {
     try {
-      const response = await fetch('http://localhost:8000/cars/api/owners/');
+      const response = await fetch(`${API_BASE_URL}/owners/`);
       if (response.ok) {
         const data = await response.json();
         // ensure data is an array - handle paginated response
@@ -130,7 +131,7 @@ const AddCar = () => {
         console.log(key, value);
       }
 
-      const response = await fetch('http://localhost:8000/cars/api/cars/', {
+      const response = await fetch(`${API_BASE_URL}/cars/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`

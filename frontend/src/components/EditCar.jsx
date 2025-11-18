@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import { API_BASE_URL } from '../services/api';
 import './AddCar.css'; // same styles
 
 const EditCar = () => {
@@ -44,7 +45,7 @@ const EditCar = () => {
   const fetchCarData = async () => {
     try {
       const token = localStorage.getItem('access_token');
-      const response = await fetch(`http://localhost:8000/cars/api/cars/${id}/`, {
+      const response = await fetch(`${API_BASE_URL}/cars/${id}/`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -83,7 +84,7 @@ const EditCar = () => {
 
   const fetchFeatures = async () => {
     try {
-      const response = await fetch('http://localhost:8000/cars/api/features/');
+      const response = await fetch(`${API_BASE_URL}/features/`);
       if (response.ok) {
         const data = await response.json();
         // ensure data is an array - handle paginated response
@@ -102,7 +103,7 @@ const EditCar = () => {
 
   const fetchOwners = async () => {
     try {
-      const response = await fetch('http://localhost:8000/cars/api/owners/');
+      const response = await fetch(`${API_BASE_URL}/owners/`);
       if (response.ok) {
         const data = await response.json();
         // ensure data is an array - handle paginated response
@@ -167,7 +168,7 @@ const EditCar = () => {
         }
       });
 
-      const response = await fetch(`http://localhost:8000/cars/api/cars/${id}/`, {
+      const response = await fetch(`${API_BASE_URL}/cars/${id}/`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -365,14 +366,14 @@ const EditCar = () => {
               {carData?.image && (
                 <div style={{ marginBottom: '1rem' }}>
                   <img 
-                    src={`http://localhost:8000${carData.image}`} 
+                    src={carData.image} 
                     alt="Current car" 
                     style={{ 
                       maxWidth: '200px', 
                       maxHeight: '150px', 
                       borderRadius: '8px',
                       objectFit: 'cover'
-                    }} 
+                    }}
                   />
                 </div>
               )}

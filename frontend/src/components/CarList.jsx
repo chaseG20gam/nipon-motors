@@ -245,7 +245,7 @@ const CarList = () => {
               {car.image && (
                 <div className="car-image-container">
                   <img 
-                    src={car.image.startsWith('http') ? car.image : `http://localhost:8000${car.image}`} 
+                    src={car.image.startsWith('http') ? car.image : car.image} 
                     alt={`${car.brand} ${car.model}`}
                     className="car-image"
                     onLoad={() => console.log(`Image loaded for ${car.brand} ${car.model}: ${car.image}`)}
