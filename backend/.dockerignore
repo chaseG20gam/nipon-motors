@@ -1,0 +1,43 @@
+# backend .dockerignore
+# files and directories to exclude from docker build context
+
+# python cache files (generated at runtime, not needed)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# virtual environments (we install packages inside container)
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# django development files
+*.log
+db.sqlite3           # SQLite database (use PostgreSQL in docker)
+db.sqlite3-journal
+/media               # will be created in container
+/staticfiles         # will be created by collectstatic
+
+# testing files
+.coverage
+.pytest_cache/
+htmlcov/
+
+# IDE files (not needed in container)
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# environment variables (security!)
+.env
+.env.local

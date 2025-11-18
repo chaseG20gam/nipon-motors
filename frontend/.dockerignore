@@ -1,0 +1,37 @@
+# frontend .dockerignore
+# files and directories to exclude from docker build context
+
+# dependencies (will be installed in container)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# build output (will be created in container)
+dist/
+build/
+
+# testing
+coverage/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# environment variables
+.env
+.env.local
+.env.production.local
+.env.development.local
+.env.test.local
+
+# misc
+*.log

@@ -1,0 +1,85 @@
+# docker compose configuration
+# this file defines and connects all services: frontend, backend, database
+
+version: '3.8'
+
+services:
+  # ============================================
+  # database - PostgreSQL
+  # ============================================
+  db:
+    image: postgres:15-alpine  # lightweight PostgreSQL image
+    volumes:
+      # persist database data (survives container restart)
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      # database credentials (change in production!)
+      - POSTGRES_DB=${DB_NAME:-nipon_motors}
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+    healthcheck:
+      # check if database is ready before starting backend
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ============================================
+  # backend - django + gunicorn
+  # ============================================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --noinput &&
+             gunicorn --bind 0.0.0.0:8000 --workers 3 project.wsgi:application"
+    volumes:
+      # share static files with frontend (for serving)
+      - static_volume:/app/staticfiles
+      # share media uploads
+      - media_volume:/app/media
+    expose:
+      # backend only talks to frontend, not directly to outside
+      - 8000
+    environment:
+      # django configuration from environment variables
+      - DEBUG=False
+      - SECRET_KEY=${SECRET_KEY:-change-me-in-production}
+      - DATABASE_URL=postgresql://${DB_USER:-postgres}:${DB_PASSWORD:-postgres}@db:5432/${DB_NAME:-nipon_motors}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-localhost,127.0.0.1}
+      - CORS_ALLOWED_ORIGINS=${CORS_ALLOWED_ORIGINS:-http://localhost}
+    depends_on:
+      # wait for database to be healthy before starting
+      db:
+        condition: service_healthy
+
+  # ============================================
+  # frontend - React + NGINX
+  # ============================================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      # map container port 80 to host port 80
+      # access via http://localhost
+      - "80:80"
+    depends_on:
+      # wait for backend to start
+      - backend
+    volumes:
+      # access backend's static files (django admin, DRF styles)
+      - static_volume:/usr/share/nginx/html/static:ro  # :ro = read-only
+      # access backend's media files (user uploads)
+      - media_volume:/usr/share/nginx/html/media:ro
+
+# ============================================
+# volumes - persistent storage
+# ============================================
+# these survive container restarts/rebuilds
+volumes:
+  postgres_data:    # database files
+  static_volume:    # django static files
+  media_volume:     # user uploaded images

@@ -11,24 +11,32 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# quick-start development settings - unsuitable for production
+# see https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ag#b_a#^=k99-h*kak2h@^6d+m#6%0yt6a9)l^a^3595@e6!bb'
+# in production, this comes from environment variable
+# in development, uses the default key
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-ag#b_a#^=k99-h*kak2h@^6d+m#6%0yt6a9)l^a^3595@e6!bb')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG is false in production (from environment variable)
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS: which domains can access this django app
+# in production, set this to your actual domain
+# in docker, we get it from environment variable, split by comma
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
-# Application definition
+
+# application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,18 +84,35 @@ TEMPLATES = [
 WSGI_APPLICATION = 'nipon_cars.wsgi.application'
 
 
-# Database
+# database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# DATABASE CONFIGURATION:
+# - in docker/production: use PostgreSQL (from DATABASE_URL environment variable)
+# - in local development: use SQLite (default)
+
+# check if DATABASE_URL is set
+if os.environ.get('DATABASE_URL'):
+    # DATABASE_URL format: postgresql://user:password@host:port/dbname
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=os.environ.get('DATABASE_URL'),
+            conn_max_age=600,  # keep connections alive for 600 seconds
+            conn_health_checks=True,  # check if connection is healthy
+        )
     }
-}
+else:
+    # development: use SQLite
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
-# Password validation
+# password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -119,7 +144,7 @@ REST_FRAMEWORK = {
 }
 
 
-# Internationalization
+# internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
@@ -129,13 +154,17 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+# STATIC_URL: URL prefix for static files (e.g., /static/admin/css/style.css)
+STATIC_URL = '/static/'
 
-# media files (user uploads)
-import os
+# STATIC_ROOT: where collectstatic puts all static files
+# in docker, we run collectstatic to gather django admin, DRF styles, etc.
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# media files (user uploads like car images)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -143,21 +172,32 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB in memory
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB max upload size
 
-# Default primary key field type
+# default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",   # create react app
-    "http://127.0.0.1:3000",   # alternative localhost
-    "http://localhost:5173",   # vite dev server
-    "http://127.0.0.1:5173",   # alternative localhost for vite
-]
-
-CORS_ALLOW_ALL_ORIGINS = True # remember to change this later!!!!
+# CORS configuration - controls which domains can make requests to our API
+# in development: allow all (for local testing)
+# in production: restrict to actual frontend domain
+if DEBUG:
+    # development mode: allow local development servers
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:3000",   # create react app
+        "http://127.0.0.1:3000",   # alternative localhost
+        "http://localhost:5173",   # vite dev server
+        "http://127.0.0.1:5173",   # alternative localhost for vite
+        "http://localhost",         # docker frontend
+    ]
+    CORS_ALLOW_ALL_ORIGINS = True  # allow any origin in development
+else:
+    # production mode: only allow specific domain
+    # get from environment variable (e.g., "https://yourdomain.com")
+    allowed_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '')
+    CORS_ALLOWED_ORIGINS = allowed_origins.split(',') if allowed_origins else []
+    CORS_ALLOW_ALL_ORIGINS = False
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -173,7 +213,7 @@ CORS_ALLOWED_HEADERS = [
     'x-requested-with',
 ]
 
-# JWT Configuration
+# JWT configuration
 from datetime import timedelta
 
 SIMPLE_JWT = {
