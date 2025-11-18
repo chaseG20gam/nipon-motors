@@ -4,16 +4,14 @@
 
 ```bash
 # 1. generate environment variables
-./generate-env.sh
+./generate-env.sh                      # macOS / Linux
+# Windows users: copy .env.example to .env and fill the values
 
-# 2. build and start all services
-docker-compose up --build
+# 2. build containers, run migrations, load demo data, start everything
+python scripts/bootstrap_sample_data.py
 
-# 3. in a new terminal, create superuser
-docker-compose exec backend python manage.py createsuperuser
-
-# 4. (optional) seed sample data
-docker-compose exec backend python manage.py seedcars
+# 3. (optional) create your own superuser
+docker compose exec backend python manage.py createsuperuser
 ```
 
 ## Access Your App

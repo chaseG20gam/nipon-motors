@@ -11,8 +11,8 @@ python-decouple==3.8
 sqlparse==0.5.1
 tzdata==2024.1
 
-# Production dependencies for Docker
-gunicorn==21.2.0              # Production WSGI server (replaces runserver)
-psycopg2-binary==2.9.9        # PostgreSQL database adapter
-dj-database-url==2.1.0        # Parse DATABASE_URL environment variable
-whitenoise==6.6.0             # Efficient static file serving
+# production dependencies for Docker
+gunicorn==21.2.0              # production WSGI server (replaces runserver)
+psycopg2-binary==2.9.9        # postgreSQL database adapter
+dj-database-url==2.1.0        # parse DATABASE_URL environment variable
+whitenoise==6.6.0             # efficient static file serving

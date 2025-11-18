@@ -1,5 +1,15 @@
 # changelog
 
+## [1.5.1] - 2025-11-18
+
+### added
+- cross-platform `scripts/bootstrap_sample_data.py` helper to start Docker services and load the curated catalog
+- `load_sample_data` management command with idempotent imports and demo account provisioning
+
+### improved
+- README and Docker quick start documentation to highlight the new bootstrap workflow
+- onboarding guidance for Windows users who do not have a Bash shell available
+
 ## [1.5.0] - 2025-11-18
 
 ### added

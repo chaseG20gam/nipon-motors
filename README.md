@@ -13,10 +13,11 @@ Get the entire application running in under 2 minutes:
 # 1. Clone and setup environment
 git clone <repository-url>
 cd nipon-motors
-./generate-env.sh
+# macOS / Linux:    ./generate-env.sh
+# Windows (PowerShell): copy .env.example to .env and adjust secrets
 
-# 2. Launch everything with Docker
-docker-compose up --build
+# 2. Start containers and load demo catalog
+python scripts/bootstrap_sample_data.py  # use `py` on Windows
 
 # 3. Visit http://localhost
 ```
